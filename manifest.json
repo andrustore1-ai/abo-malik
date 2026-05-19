@@ -1,0 +1,23 @@
+{
+  "name": "إدارة المحروقات",
+  "short_name": "المحروقات",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#0f766e",
+  "background_color": "#f4f7fb",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

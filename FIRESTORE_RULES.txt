@@ -1,0 +1,14 @@
+هذه النسخة لا تستخدم Firestore.
+استخدم Realtime Database فقط.
+
+افتح:
+Firebase Console > Realtime Database > Rules
+
+ثم ضع القواعد التالية وانشرها:
+
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
