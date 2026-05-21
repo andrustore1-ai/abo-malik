@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تنبيه: التطبيق مغلق مؤقتاً</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cairo Font for beautiful Arabic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at center, #1e1e2f 0%, #0f0f15 100%);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 text-slate-200">
+
+    <!-- Main Container (Centered) -->
+    <div class="w-full max-w-lg bg-slate-900/80 backdrop-blur-xl border border-rose-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-rose-950/20 text-center relative overflow-hidden">
+        
+        <!-- Top Decorative Gradient Glow -->
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-rose-500/20 blur-3xl rounded-full"></div>
+
+        <!-- Header Lock Icon Area -->
+        <div class="relative mx-auto w-20 h-20 mb-6 flex items-center justify-center bg-rose-500/10 rounded-full border border-rose-500/20 pulse-animation">
+            <!-- Lock / Suspended SVG Icon -->
+            <svg class="w-10 h-10 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+            <span class="absolute top-1 right-1 flex h-3.5 w-3.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-rose-500"></span>
+            </span>
+        </div>
+
+        <!-- App Suspended Text -->
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
+            تم إغلاق التطبيق مؤقتاً
+        </h1>
+        <p class="text-sm sm:text-base text-slate-400 mb-8 max-w-sm mx-auto">
+            عذراً، تم تعليق صلاحيات استخدام التطبيق مؤقتاً لحين سداد المستحقات المالية المتبقية.
+        </p>
+
+        <!-- Financial Summary Card -->
+        <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-5 mb-6 text-right">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4 border-b border-slate-800/80 pb-2">
+                كشف الحساب المالي
+            </h3>
+            
+            <div class="space-y-3">
+                <!-- Total Amount -->
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-slate-400 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        إجمالي قيمة العمل:
+                    </span>
+                    <span class="font-bold text-slate-200">150 ₪ <span class="text-xs font-normal text-slate-400">(شيكل)</span></span>
+                </div>
+
+                <!-- Paid Amount -->
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-slate-400 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        المبلغ المدفوع:
+                    </span>
+                    <span class="font-bold text-emerald-400">100 ₪ <span class="text-xs font-normal text-emerald-500">(شيكل)</span></span>
+                </div>
+
+                <!-- Divider -->
+                <div class="border-t border-dashed border-slate-800 my-2"></div>
+
+                <!-- Remaining Amount -->
+                <div class="flex justify-between items-center text-base font-bold">
+                    <span class="text-rose-400 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                        المبلغ المتبقي المستحق:
+                    </span>
+                    <span class="text-xl text-rose-500">50 ₪ <span class="text-xs font-normal text-rose-400">(شيكل)</span></span>
+                </div>
+            </div>
+
+            <!-- Progress Bar Visualization -->
+            <div class="mt-5">
+                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                    <span>نسبة المدفوع (66%)</span>
+                    <span>المتبقي (34%)</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden flex">
+                    <div class="bg-emerald-500 h-full rounded-r-full" style="width: 66.6%"></div>
+                    <div class="bg-rose-500 h-full rounded-l-full" style="width: 33.4%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crucial Notice Box -->
+        <div class="bg-amber-950/20 border border-amber-500/30 rounded-2xl p-4 text-right mb-8 flex items-start gap-3">
+            <div class="bg-amber-500/10 p-2 rounded-lg text-amber-500 shrink-0 mt-0.5">
+                <!-- Alert Icon -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+            </div>
+            <div>
+                <h4 class="text-amber-400 font-bold text-sm mb-1">تنبيه نهائي هام جداً</h4>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                    يرجى سداد المبلغ المتبقي خلال <span class="text-amber-400 font-bold">7 أيام</span>، وإلا سيتم إغلاق وتعليق قاعدة بيانات التطبيق بالكامل وإلغاء الاستضافة نهائياً.
+                </p>
+            </div>
+        </div>
+
+        <!-- Custom Notification Message Box (Dynamic interactive UI element) -->
+        <div id="payment-notification-box" class="hidden mb-6 bg-slate-950/80 border border-indigo-500/30 rounded-2xl p-4 text-center">
+            <p class="text-xs text-indigo-300 mb-3 font-semibold">هل قمت بالتحويل وتريد إرسال الإثبات؟</p>
+            <input type="text" id="transaction-id" placeholder="أدخل كود التحويل أو ملاحظة هنا..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-center mb-3">
+            <button onclick="sendWithTx()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg text-xs transition-colors duration-200">
+                إرسال مع إثبات الدفع
+            </button>
+        </div>
+
+        <!-- Action Button (WhatsApp) -->
+        <div class="space-y-3">
+            <a id="whatsapp-btn" href="https://wa.me/972515948259?text=مرحباً، أريد تسوية المبلغ المتبقي لتفعيل التطبيق (المتبقي: 50 شيكل)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 shadow-lg shadow-emerald-950/30 text-base">
+                <!-- WhatsApp SVG Icon -->
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.73-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.122.953 11.516.953c-5.442 0-9.865 4.371-9.87 9.802 0 1.745.483 3.396 1.4 4.885l-.995 3.633 3.756-.973zm14.867-5.518c-.282-.141-1.664-.813-1.921-.906-.257-.094-.444-.141-.63.141-.188.281-.724.906-.887 1.093-.163.188-.327.21-.61.07-1.166-.503-2.007-.863-2.793-2.204-.207-.353.207-.328.592-1.085.115-.23.057-.432-.028-.601-.087-.17-.724-1.712-.992-2.366-.261-.637-.528-.55-.724-.559-.187-.01-.402-.01-.617-.01-.215 0-.566.08-.862.407-.296.327-1.13 1.093-1.13 2.668 0 1.575 1.166 3.097 1.326 3.31.163.21 2.296 3.472 5.562 4.868.777.332 1.383.53 1.854.678.78.245 1.491.21 2.052.127.625-.093 1.663-.672 1.897-1.288.234-.617.234-1.144.164-1.288-.07-.144-.257-.23-.539-.371z"/>
+                </svg>
+                تواصل عبر واتساب فوراً لسداد المبلغ
+            </a>
+            
+            <!-- Quick Helper toggles -->
+            <button onclick="toggleNotificationBox()" class="text-xs text-slate-400 hover:text-slate-200 underline block mx-auto mt-4 transition-colors">
+                هل قمت بتحويل المبلغ بالفعل؟ انقر هنا
+            </button>
+        </div>
+
+        <!-- Footer Info -->
+        <p class="text-[11px] text-slate-600 mt-8">
+            جميع الحقوق محفوظة. يتم إدارة الفوترة إلكترونياً.
+        </p>
+
+    </div>
+
+    <!-- Interactive JS logic -->
+    <script>
+        function toggleNotificationBox() {
+            var box = document.getElementById('payment-notification-box');
+            if (box.classList.contains('hidden')) {
+                box.classList.remove('hidden');
+                box.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                box.classList.add('hidden');
+            }
+        }
+
+        function sendWithTx() {
+            var txId = document.getElementById('transaction-id').value.trim();
+            var baseUrl = "https://wa.me/972515948259?text=";
+            var message = "مرحباً، لقد قمت بتحويل المبلغ المتبقي (50 شيكل). ";
+            
+            if (txId !== "") {
+                message += "تفاصيل الإثبات/التحويل: " + encodeURIComponent(txId);
+            } else {
+                message += "يرجى التحقق من عملية السداد لتفعيل التطبيق.";
+            }
+            
+            window.open(baseUrl + encodeURIComponent(message), '_blank');
+        }
+    </script>
+</body>
+</html>
